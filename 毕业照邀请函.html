@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <meta name="referrer" content="no-referrer">
+    <title>毕业季邀请函 | 师恩如海 · 动态呈信</title>
+    <!-- Font Awesome 6 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(145deg, #fef5e6 0%, #ddebf3 100%);
+            font-family: 'Segoe UI', 'Noto Sans CJK SC', 'Roboto', 'Helvetica Neue', sans-serif;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* 漂浮装饰气泡 */
+        .bg-bubble {
+            position: fixed;
+            background: rgba(255, 215, 180, 0.3);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            animation: floatBubble 18s infinite ease-in-out;
+        }
+
+        @keyframes floatBubble {
+            0% { transform: translateY(0) translateX(0) scale(1); opacity: 0.5; }
+            50% { transform: translateY(-40px) translateX(20px) scale(1.05); opacity: 0.8; }
+            100% { transform: translateY(0) translateX(0) scale(1); opacity: 0.5; }
+        }
+
+        /* 主卡片 */
+        .invitation-card {
+            position: relative;
+            z-index: 10;
+            max-width: 720px;
+            width: 100%;
+            background: rgba(255, 252, 245, 0.96);
+            backdrop-filter: blur(2px);
+            border-radius: 60px 52px 64px 52px;
+            box-shadow: 0 30px 50px -18px rgba(0, 0, 0, 0.25), 0 8px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 235, 210, 0.9);
+        }
+
+        .invitation-card:hover {
+            transform: scale(1.01);
+        }
+
+        /* 头部学位帽装饰 */
+        .header-decoration {
+            background: linear-gradient(135deg, #2e4355, #1a2c38);
+            padding: 2rem 1.5rem 1.2rem;
+            text-align: center;
+            color: #ffefda;
+            position: relative;
+        }
+
+        .header-decoration i {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #ffdd99, #ffb347);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .header-decoration h1 {
+            font-size: 2.4rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin: 0.2rem 0;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+        }
+
+        .header-decoration p {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        /* 内容区 */
+        .content {
+            padding: 2rem 2rem 1.5rem;
+        }
+
+        .greeting {
+            text-align: center;
+            border-bottom: 2px dashed #f5dcb5;
+            padding-bottom: 1rem;
+            margin-bottom: 1.6rem;
+            min-height: 90px;
+        }
+
+        .teacher-title {
+            font-size: 1.9rem;
+            font-weight: 700;
+            background: linear-gradient(120deg, #d47b3c, #b1451a);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            display: inline-block;
+            letter-spacing: 1px;
+        }
+
+        .invite-msg {
+            font-size: 1rem;
+            color: #4d3322;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        /* 动态输出主区域 */
+        .dynamic-text {
+            background: #fffaf3;
+            padding: 1.2rem 1.5rem;
+            border-radius: 36px;
+            margin: 1rem 0 1.2rem;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02), inset 0 0 0 1px rgba(255, 245, 225, 0.8);
+            min-height: 280px;
+        }
+
+        .dynamic-text p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            font-size: 1rem;
+            color: #2b2b2b;
+            text-indent: 2em;
+            word-break: break-word;
+        }
+
+        .dynamic-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .cursor-blink {
+            display: inline-block;
+            width: 2px;
+            height: 1.2rem;
+            background-color: #e67e22;
+            vertical-align: middle;
+            margin-left: 2px;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* 信息卡片区域（静态，保持整洁） */
+        .info-box {
+            background: #ffffffdb;
+            backdrop-filter: blur(4px);
+            border-radius: 32px;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 8px solid #f7b05e;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .info-item i {
+            width: 32px;
+            font-size: 1.4rem;
+            color: #d9893b;
+            text-align: center;
+        }
+
+        .info-label {
+            font-weight: 700;
+            color: #2c3e44;
+            min-width: 70px;
+        }
+
+        .info-detail {
+            color: #3e2a21;
+            font-weight: 500;
+        }
+
+        .signature {
+            text-align: right;
+            margin-top: 1.8rem;
+            padding-top: 0.8rem;
+            border-top: 1px solid #ffe0c0;
+            font-size: 1rem;
+            font-family: 'KaiTi', '华文行书', cursive;
+            color: #a55c2c;
+        }
+
+        /* 音乐播放器 */
+        .music-player {
+            background: #fef3e8;
+            margin: 0 1.8rem 1.2rem 1.8rem;
+            border-radius: 80px;
+            padding: 0.6rem 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #ffddb0;
+        }
+
+        .song-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,235,215,0.7);
+            border-radius: 40px;
+            padding: 0.3rem 1rem;
+        }
+
+        .song-info i {
+            font-size: 1.3rem;
+            color: #e6842c;
+        }
+
+        .song-info span {
+            font-weight: 600;
+            color: #5a3e2c;
+        }
+
+        .play-control {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .play-btn {
+            background: #ffb26e;
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            font-size: 1.3rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .play-btn:hover {
+            background: #e5944a;
+            transform: scale(1.05);
+        }
+
+        .volume-slider {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #fff0e0;
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+        }
+
+        .volume-slider i {
+            color: #bd7a3a;
+            font-size: 1rem;
+        }
+
+        input[type="range"] {
+            width: 80px;
+            height: 4px;
+            -webkit-appearance: none;
+            background: #f0cfb0;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 12px;
+            height: 12px;
+            background: #e2762c;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .music-hint {
+            font-size: 0.7rem;
+            color: #aa7a54;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.7rem;
+            padding: 1rem 0 1.2rem;
+            color: #aa8868;
+            background: #fff8f0;
+            border-top: 1px solid #ffefdf;
+        }
+
+        /* 高亮强调样式 (动态输出后追加) */
+        .dynamic-highlight {
+            background: #fff0e2;
+            padding: 0.1rem 0.3rem;
+            border-radius: 12px;
+            color: #cc7b3e;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .dynamic-strong {
+            font-weight: 700;
+            color: #c0642c;
+        }
+
+        @media (max-width: 560px) {
+            .content {
+                padding: 1.5rem;
+            }
+            .invitation-card {
+                border-radius: 40px;
+            }
+            .music-player {
+                flex-direction: column;
+                align-items: stretch;
+                border-radius: 36px;
+            }
+            .play-control {
+                justify-content: space-between;
+            }
+            .info-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.3rem;
+            }
+            .teacher-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-bubble" style="width: 180px; height: 180px; top: 5%; left: -5%;"></div>
+    <div class="bg-bubble" style="width: 240px; height: 240px; bottom: 10%; right: -8%; animation-duration: 25s;"></div>
+    <div class="bg-bubble" style="width: 100px; height: 100px; top: 30%; right: 5%; animation-duration: 15s; opacity: 0.4;"></div>
+    <div class="bg-bubble" style="width: 300px; height: 300px; bottom: -15%; left: 15%; animation-duration: 30s; background: rgba(245, 195, 125, 0.2);"></div>
+
+    <div class="invitation-card">
+        <div class="header-decoration">
+            <i class="fas fa-graduation-cap"></i>
+            <h1>毕业 · 光影纪</h1>
+            <p>Graduation Photo Invitation</p>
+        </div>
+
+        <div class="content">
+            <!-- 动态输出的称呼区域 (打字机效果) -->
+            <div class="greeting" id="greetingZone">
+                <div class="teacher-title" id="dynamicTitle"></div>
+                <div class="invite-msg" id="dynamicSubMsg"></div>
+            </div>
+
+            <!-- 动态主文案区域 -->
+            <div class="dynamic-text" id="dynamicTextZone">
+                <!-- 此处完全由js动态生成内容，且逐字输出 -->
+            </div>
+
+            <!-- 静态信息卡片（地点日期不变） -->
+            <div class="info-box">
+                <div class="info-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span class="info-label">拍摄日期</span>
+                    <span class="info-detail">2026年5月31日 (周日)  上午 09:50 - 10:00</span>
+                </div>
+                <!-- <div class="info-item">
+                    <i class="fas fa-location-dot"></i>
+                    <span class="info-label">集合地点</span>
+                    <span class="info-detail">大学主楼 · 时光广场 / 图书馆东侧草坪</span>
+                </div> -->
+                <!-- <div class="info-item">
+                    <i class="fas fa-camera-retro"></i>
+                    <span class="info-label">着装建议</span>
+                    <span class="info-detail">浅色正装 / 学士服 (现场提供) | 佩戴毕业纪念徽章</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-umbrella"></i>
+                    <span class="info-label">温馨提示</span>
+                    <span class="info-detail">如遇雨天，转至校史馆大厅，届时短信提醒</span>
+                </div> -->
+            </div>
+
+            <div class="signature">
+                <i class="fas fa-feather-alt"></i> 220722班全体同学 敬邀<br>
+                <span style="font-size:0.85rem;">您的学生：陈焕坤</span>
+            </div>
+        </div>
+
+        <!-- 音乐播放器 起风了 -->
+        <div class="music-player">
+            <div class="song-info">
+                <i class="fas fa-music"></i>
+                <span>🎐 起风了</span>
+            </div>
+            <div class="play-control">
+                <button class="play-btn" id="playPauseBtn">
+                    <i class="fas fa-play"></i>
+                </button>
+                <div class="volume-slider">
+                    <i class="fas fa-volume-down"></i>
+                    <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="0.2">
+                </div>
+            </div>
+            <div class="music-hint">
+                <i class="fas fa-headphones"></i> 愿这首歌，唤起青葱回忆
+            </div>
+        </div>
+
+        <footer>
+            🌟 光影流转，恩情不忘 —— 期待与您同框 🌟
+        </footer>
+    </div>
+
+    <audio id="bgMusic" preload="auto" loop>
+        <source src="./买辣椒也用券+-+起风了.mp3" type="audio/mpeg">
+        您的浏览器不支持 audio 元素。
+    </audio>
+
+    <script>
+        (function() {
+            // ----------------------------------------------
+            // 1. 动态输出核心 (打字机效果)
+            // ----------------------------------------------
+            // 定义需要动态输出的内容：
+            // 称谓部分
+            const titleText = "敬爱的老师";
+            const subMsgText = "岁月如歌，师恩如海，邀您共赴青春盛典";
+            
+            // 主文案段落数组 (三个段落，保留原有优美文案)
+            const paragraphs = [
+                "时光荏苒，岁月如梭，转眼间我们即将告别美好的大学时光，踏上人生新的旅程。回首数载求学路，幸得您悉心教诲、耐心指引，我们收获知识，也懂得成长。为定格青春瞬间，留存师生情谊，我们全体同学诚挚邀请您前来参加班级毕业照拍摄活动。",
+                "\"一朝沐杏雨，一生念师恩\"。愿借此珍贵时刻，与您一同定格校园最后的美好回忆，见证我们的毕业时刻。万望老师拨冗出席，同学们不胜感激！",
+                
+            ];
+            
+            // 获取元素
+            const titleEl = document.getElementById('dynamicTitle');
+            const subMsgEl = document.getElementById('dynamicSubMsg');
+            const dynamicZone = document.getElementById('dynamicTextZone');
+            
+            // 清空初始内容
+            titleEl.innerHTML = '';
+            subMsgEl.innerHTML = '';
+            dynamicZone.innerHTML = '';
+            
+            // 打字机核心: 将文本逐字填入目标元素（支持 HTML 转义，但这里纯文本逐字）
+            function typeWriterToElement(element, text, speed, callback) {
+                let i = 0;
+                element.innerHTML = ''; 
+                function addChar() {
+                    if (i < text.length) {
+                        // 逐字追加，保留空格与标点
+                        element.innerHTML += text.charAt(i);
+                        i++;
+                        setTimeout(addChar, speed);
+                    } else {
+                        if (callback) callback();
+                    }
+                }
+                addChar();
+            }
+            
+            // 为了段落动态: 依次显示多段，每个段落单独一个p标签，并且每一段落也逐字出现？
+            // 更优雅: 把每个段落创建<p>，然后每个p内部逐字书写 (但会涉及异步嵌套)
+            // 做法: 按段落索引顺序，每次生成新的<p>，然后对该p进行逐字渲染
+            function typeParagraphs(index) {
+                if (index >= paragraphs.length) {
+                    // 所有段落输出完成后，增加高亮强调修饰
+                    applyHighlightToDynamicText();
+                    return;
+                }
+                const p = document.createElement('p');
+                p.style.marginBottom = '1rem';
+                p.style.lineHeight = '1.7';
+                p.style.textIndent = '2em';
+                dynamicZone.appendChild(p);
+                let i = 0;
+                const text = paragraphs[index];
+                function addCharToP() {
+                    if (i < text.length) {
+                        p.innerHTML += text.charAt(i);
+                        i++;
+                        setTimeout(addCharToP, 28); // 舒适速度 28ms/字
+                    } else {
+                        // 当前段落结束，继续下一段落
+                        typeParagraphs(index + 1);
+                    }
+                }
+                addCharToP();
+            }
+            
+            // 对动态输出的段落增加样式高亮 (关键词加粗、高亮)
+            function applyHighlightToDynamicText() {
+                // 稍等片刻，等待所有段落完全显示之后统一处理 (因为输出异步，但最后一段完成时触发)
+                // 在 typeParagraphs 完成时调用此函数，但要确保最后一段字符写完。可以用一个延迟检查机制，但因为我们最后一个段落执行完后调用，但执行高亮时机在最后段落打字完毕后执行?
+                // 修改: 在 typeParagraphs 完成全部段落时调用 (index===paragraphs.length 时调用)
+                // 实际上在上面递归最后调用了 applyHighlightToDynamicText，已经执行，但可能在最后字符刚加完时DOM已经完整。
+                // 手动对 .dynamic-text 里所有 p 内容进行替换关键词
+                const allPs = document.querySelectorAll('#dynamicTextZone p');
+                allPs.forEach(p => {
+                    let html = p.innerHTML;
+                    // 高亮特定词 “一朝沐杏雨，一生念师恩”
+                    html = html.replace(/一朝沐杏雨，一生念师恩/g, match => `<span class="dynamic-highlight">${match}</span>`);
+                    // 加粗重要日期或关键词
+                    html = html.replace(/2026年6月18日/g, match => `<strong class="dynamic-strong">${match}</strong>`);
+                   
+                    p.innerHTML = html;
+                });
+            }
+            
+            // 启动动态流程: 先显示称谓 + 副标题 (顺序执行)
+            // 称谓打字速度稍快
+            function startDynamicInvitation() {
+                // 第一步: 输出 "敬爱的老师"
+                typeWriterToElement(titleEl, titleText, 50, () => {
+                    // 称谓完成后，输出副标题
+                    typeWriterToElement(subMsgEl, subMsgText, 45, () => {
+                        // 副标题完成后开始逐段输出主文案
+                        typeParagraphs(0);
+                    });
+                });
+            }
+            
+            // 增加一个光标闪烁装饰（在动态输出最后一段后可去除，无伤大雅）
+            // 启动整个动态邀请效果
+            startDynamicInvitation();
+            
+            // ----------------------------------------------
+            // 2. 音乐播放模块 (保持不变，并增加重试机制)
+            // ----------------------------------------------
+            const audio = document.getElementById('bgMusic');
+            const playBtn = document.getElementById('playPauseBtn');
+            const volumeSlider = document.getElementById('volumeControl');
+            const playIcon = playBtn.querySelector('i');
+            let isPlaying = false;
+            let hasErrorFlag = false;
+            
+            audio.volume = 0.3;//音量大小
+            if(volumeSlider) volumeSlider.value = 0.6;
+            
+            volumeSlider.addEventListener('input', function(e) {
+                const val = parseFloat(e.target.value);
+                audio.volume = val;
+            });
+            
+            function updatePlayButton(playing) {
+                if (playing) {
+                    playIcon.className = 'fas fa-pause';
+                } else {
+                    playIcon.className = 'fas fa-play';
+                }
+            }
+            
+            function togglePlay() {
+                if (hasErrorFlag) {
+                    audio.load();
+                    hasErrorFlag = false;
+                }
+                if (audio.paused) {
+                    const playPromise = audio.play();
+                    if (playPromise !== undefined) {
+                        playPromise.then(() => {
+                            isPlaying = true;
+                            updatePlayButton(true);
+                        }).catch(error => {
+                            console.warn("播放失败", error);
+                            showMusicToast();
+                            isPlaying = false;
+                            updatePlayButton(false);
+                        });
+                    }
+                } else {
+                    audio.pause();
+                    isPlaying = false;
+                    updatePlayButton(false);
+                }
+            }
+            
+            function showMusicToast() {
+                let toast = document.createElement('div');
+                toast.innerText = '🎵 点击播放按钮，聆听《起风了》～ 也可检查网络后重试';
+                toast.style.position = 'fixed';
+                toast.style.bottom = '70px';
+                toast.style.left = '50%';
+                toast.style.transform = 'translateX(-50%)';
+                toast.style.backgroundColor = '#2e241fcc';
+                toast.style.color = '#fff0db';
+                toast.style.padding = '8px 20px';
+                toast.style.borderRadius = '40px';
+                toast.style.fontSize = '0.8rem';
+                toast.style.zIndex = '999';
+                toast.style.backdropFilter = 'blur(8px)';
+                document.body.appendChild(toast);
+                setTimeout(() => {
+                    toast.style.opacity = '0';
+                    setTimeout(() => toast.remove(), 500);
+                }, 2800);
+            }
+            
+            playBtn.addEventListener('click', togglePlay);
+            
+            audio.addEventListener('error', (e) => {
+                console.error("音乐加载失败", e);
+                hasErrorFlag = true;
+                if (!document.getElementById('musicRetryTip')) {
+                    const musicDiv = document.querySelector('.music-player');
+                    const retrySpan = document.createElement('div');
+                    retrySpan.id = 'musicRetryTip';
+                    retrySpan.style.fontSize = '0.7rem';
+                    retrySpan.style.color = '#c24b1a';
+                    retrySpan.style.marginTop = '5px';
+                    retrySpan.innerHTML = '<i class="fas fa-exclamation-triangle"></i> 音乐加载失败，可点击重试按钮';
+                    musicDiv.appendChild(retrySpan);
+                    const retryBtn = document.createElement('button');
+                    retryBtn.innerHTML = '<i class="fas fa-sync-alt"></i> 重试音乐';
+                    retryBtn.style.background = '#e2c6aa';
+                    retryBtn.style.border = 'none';
+                    retryBtn.style.borderRadius = '30px';
+                    retryBtn.style.padding = '3px 12px';
+                    retryBtn.style.fontSize = '0.7rem';
+                    retryBtn.style.cursor = 'pointer';
+                    retryBtn.style.marginLeft = '12px';
+                    retryBtn.onclick = (e) => {
+                        e.stopPropagation();
+                        audio.load();
+                        hasErrorFlag = false;
+                        const tipDiv = document.getElementById('musicRetryTip');
+                        if(tipDiv) tipDiv.style.display = 'none';
+                        if(isPlaying) audio.play().catch(err=>console.log);
+                    };
+                    const controlDiv = document.querySelector('.play-control');
+                    if(controlDiv && !controlDiv.querySelector('.retryMusicBtn')) {
+                        retryBtn.classList.add('retryMusicBtn');
+                        controlDiv.appendChild(retryBtn);
+                    }
+                }
+                updatePlayButton(false);
+                isPlaying = false;
+            });
+            
+            audio.addEventListener('canplay', () => {
+                const errorDiv = document.getElementById('musicRetryTip');
+                if(errorDiv) errorDiv.style.display = 'none';
+                const extraBtn = document.querySelector('.retryMusicBtn');
+                if(extraBtn) extraBtn.style.display = 'none';
+                hasErrorFlag = false;
+            });
+            
+            // 页面加载后，等待用户交互时才可自动播放？为避免策略，不自动播放，手动点击按钮即可
+            // 提升体验，键盘空格控制
+            document.addEventListener('keydown', (e) => {
+                if (e.code === 'Space' && document.activeElement && (document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'BUTTON' && document.activeElement.tagName !== 'A')) {
+                    e.preventDefault();
+                    togglePlay();
+                }
+            });
+            
+            // 装饰: 在动态输出时显示优雅效果，无需额外动作
+            console.log('动态邀请函已启动，文字正逐字呈现，师恩永记');
+        })();
+    </script>
+</body>
+</html>
